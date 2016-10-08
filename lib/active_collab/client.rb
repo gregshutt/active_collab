@@ -1,7 +1,11 @@
 require 'httparty'
 
+require 'active_collab/client/account'
+
 module ActiveCollab
   class Client
+    include ActiveCollab::Client::Account
+
     attr_reader :username
     attr_reader :current_user
     attr_reader :cookie
