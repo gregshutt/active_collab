@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/issue-token"
+    body:
+      encoding: UTF-8
+      string: client_name=ActiveCollab+0.1.0&client_vendor=Independence+Software%2C+Inc&password=<ACTIVECOLLAB_PASSWORD>&username=<ACTIVECOLLAB_USERNAME>
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Thu, 03 Nov 2016 20:27:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '68'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=nug3orh9u8co03jtb978j1kll1; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Angie-Applicationversion:
+      - 5.11.13
+    body:
+      encoding: UTF-8
+      string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 20:27:09 GMT
+recorded_with: VCR 3.0.3
