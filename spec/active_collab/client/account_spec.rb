@@ -4,7 +4,8 @@ describe ActiveCollab::Client::Account, :vcr do
 
   describe "#sign_in" do
     it "signs the user in" do
-      client = ActiveCollab::Client.new activecollab_username, activecollab_password
+      client = ActiveCollab::Client.new activecollab_host
+      client.sign_in(activecollab_username, activecollab_password)
 
       expect(client.signed_in?).to be true
       expect(client.user).to_not be_nil

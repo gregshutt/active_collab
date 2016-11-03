@@ -14,6 +14,10 @@ end
 VCR.configure do |c|
   c.configure_rspec_metadata!
 
+  c.filter_sensitive_data("<ACTIVECOLLAB_HOST>") do
+    ENV['ACTIVECOLLAB_TEST_HOST']
+  end
+
   c.filter_sensitive_data("<ACTIVECOLLAB_USERNAME>") do
     ENV['ACTIVECOLLAB_TEST_USERNAME']
   end
@@ -27,6 +31,13 @@ VCR.configure do |c|
   c.default_cassette_options = { :record => :new_episodes }
 end
 
+# The host for the activecollab account to use during testing.
+#
+# @return The host name.
+def activecollab_host
+  ENV.fetch 'ACTIVECOLLAB_TEST_HOST'
+end
+
 # The username for the activecollab account to use during testing.
 #
 # @return The account's username.
@@ -34,7 +45,7 @@ def activecollab_username
   ENV.fetch 'ACTIVECOLLAB_TEST_USERNAME'
 end
 
-# The password for the reddit account to use during testing.
+# The password for the activecollab account to use during testing.
 #
 # @return The account's password.
 def activecollab_password
