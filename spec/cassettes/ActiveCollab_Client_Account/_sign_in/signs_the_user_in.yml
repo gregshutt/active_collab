@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.10.1
       Date:
-      - Thu, 03 Nov 2016 20:27:09 GMT
+      - Thu, 03 Nov 2016 21:45:39 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=nug3orh9u8co03jtb978j1kll1; path=/
+      - PHPSESSID=h6qniek6ndg8liuv9bh1rshos1; path=/
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
     http_version: 
-  recorded_at: Thu, 03 Nov 2016 20:27:09 GMT
+  recorded_at: Thu, 03 Nov 2016 21:45:39 GMT
 recorded_with: VCR 3.0.3

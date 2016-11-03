@@ -8,13 +8,6 @@ describe ActiveCollab::Client::Account, :vcr do
       client.sign_in(activecollab_username, activecollab_password)
 
       expect(client.signed_in?).to be true
-      expect(client.user).to_not be_nil
-    end
-  end
-
-  describe "#signed_in?" do
-    it "determines whether there is a user signed in" do
-      expect(authenticated_client.signed_in?).to be true
     end
   end
 

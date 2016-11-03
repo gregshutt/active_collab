@@ -1,11 +1,14 @@
 require 'faraday'
 
 require 'active_collab/client/account'
+require 'active_collab/client/users'
 require 'active_collab/response/parse_json'
+require 'active_collab/response/raise_error'
 
 module ActiveCollab
   class Client
     include ActiveCollab::Client::Account
+    include ActiveCollab::Client::Users
 
     attr_reader :username
     attr_reader :current_user
@@ -19,8 +22,12 @@ module ActiveCollab
     API_VERSION = 1
     API_URL_DEFAULT = 'https://app.activecollab.com/'
 
-    def initialize(hostname = nil)
+    def initialize(hostname = nil, username = nil, password = nil)
       @api_url = hostname
+
+      if (! username.nil?) && (! password.nil?)
+        sign_in(username, password)
+      end
     end
 
     def api_url
@@ -34,7 +41,7 @@ module ActiveCollab
     def middleware
       @middleware ||= Faraday::RackBuilder.new do |builder|
         builder.use Faraday::Request::UrlEncoded
-        #builder.use RedditKit::Response::RaiseError
+        builder.use ActiveCollab::Response::RaiseError
         builder.use ActiveCollab::Response::ParseJSON
         builder.adapter Faraday.default_adapter
       end
@@ -50,7 +57,15 @@ module ActiveCollab
       end
 
       def request(method, path, parameters = {}, request_connection)
-        request_connection.send(method.to_sym, path, parameters).env
+        if signed_in?
+          request = proc do |request|
+            request.headers['X-Angie-AuthApiToken'] = @token
+          end
+
+          request_connection.send(method.to_sym, path, parameters, &request).env
+        else
+          request_connection.send(method.to_sym, path, parameters).env
+        end
       rescue Faraday::Error::ClientError
         raise 'oh noes'
       end

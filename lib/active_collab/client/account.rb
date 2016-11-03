@@ -23,10 +23,10 @@ module ActiveCollab
           raise 'oh noes'
         end
 
-        @token = body[:token]        
+        @token = body[:token]
+        @username = username
 
         #@current_user = user @username
-        #@username = @current_user.username
       end
 
       # Check is a user is currently signed in.
