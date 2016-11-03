@@ -15,13 +15,15 @@ module ActiveCollab
           client_name: user_agent,
           client_vendor: 'Independence Software, Inc'
         }
-        #body = response[:body]
 
-        #data = body[:json][:data]
+        body = response[:body]
 
-        #@modhash = data[:modhash]
-        #@cookie = data[:cookie]
-        #@username = username
+        # check for is_ok
+        if body[:is_ok] != true
+          raise 'oh noes'
+        end
+
+        @token = body[:token]        
 
         #@current_user = user @username
         #@username = @current_user.username
@@ -31,7 +33,7 @@ module ActiveCollab
       #
       # @return [Boolean]
       def signed_in?
-        !!@modhash and !!@cookie
+        !!@token
       end
 
       # Sign the current user out.
@@ -39,8 +41,7 @@ module ActiveCollab
         @username = nil
         @current_user = nil
 
-        @modhash = nil
-        @cookie = nil
+        @token = nil
       end
 
 

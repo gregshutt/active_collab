@@ -1,6 +1,7 @@
 require 'faraday'
 
 require 'active_collab/client/account'
+require 'active_collab/response/parse_json'
 
 module ActiveCollab
   class Client
@@ -34,7 +35,7 @@ module ActiveCollab
       @middleware ||= Faraday::RackBuilder.new do |builder|
         builder.use Faraday::Request::UrlEncoded
         #builder.use RedditKit::Response::RaiseError
-        #builder.use RedditKit::Response::ParseJSON
+        builder.use ActiveCollab::Response::ParseJSON
         builder.adapter Faraday.default_adapter
       end
     end
@@ -49,7 +50,7 @@ module ActiveCollab
       end
 
       def request(method, path, parameters = {}, request_connection)
-        request_connection.send(method.to_sym, path, parameters)
+        request_connection.send(method.to_sym, path, parameters).env
       rescue Faraday::Error::ClientError
         raise 'oh noes'
       end
