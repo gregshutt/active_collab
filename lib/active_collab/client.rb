@@ -1,6 +1,7 @@
 require 'faraday'
 
 require 'active_collab/client/account'
+require 'active_collab/client/projects'
 require 'active_collab/client/users'
 require 'active_collab/response/parse_json'
 require 'active_collab/response/raise_error'
@@ -8,30 +9,29 @@ require 'active_collab/response/raise_error'
 module ActiveCollab
   class Client
     include ActiveCollab::Client::Account
+    include ActiveCollab::Client::Projects
     include ActiveCollab::Client::Users
 
     attr_reader :username
     attr_reader :current_user
-    attr_reader :cookie
-    attr_reader :modhash
+    attr_reader :token
 
     attr_accessor :api_endpoint
     attr_accessor :user_agent
     attr_accessor :middleware
 
     API_VERSION = 1
-    API_URL_DEFAULT = 'https://app.activecollab.com/'
 
     def initialize(hostname = nil, username = nil, password = nil)
-      @api_url = hostname
+      
 
       if (! username.nil?) && (! password.nil?)
         sign_in(username, password)
       end
     end
 
-    def api_url
-      @api_url ||= API_URL_DEFAULT
+    def api_endpoint
+      @api_endpoint ||= ActiveCollab.configuration.api_endpoint
     end
 
     def user_agent
@@ -71,7 +71,7 @@ module ActiveCollab
       end
     
       def connection
-        @connection ||= connection_with_url(api_url)
+        @connection ||= connection_with_url(api_endpoint)
       end
 
       def connection_with_url(url)

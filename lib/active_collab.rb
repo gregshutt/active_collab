@@ -1,16 +1,18 @@
 require 'active_collab/version'
 require 'active_collab/client'
+require 'active_collab/configuration'
 
 module ActiveCollab
-
-  @@api_url = nil
-
-  def self.api_url=(api_url)
-    @@api_url = api_url
+  def self.reset
+    @configuration = Configuration.new
+  end
+  
+  def self.configuration
+    @configuration ||= Configuration.new
   end
 
-  def self.client
-    ActiveCollab::Client.new(@@api_url) 
+  def self.configure
+    yield(configuration)
   end
 
 end

@@ -8,7 +8,10 @@ module ActiveCollab
       # @see https://developers.activecollab.com/api-documentation/v1/authentication.html
       # @param username [String] The ActiveCollab account's username.
       # @param password [String] The ActiveCollab account's password.
-      def sign_in(username, password)
+      def sign_in(username = nil, password = nil)
+        username ||= ActiveCollab.configuration.username
+        password ||= ActiveCollab.configuration.password
+
         response = post '/issue-token', { 
           username: username, 
           password: password,

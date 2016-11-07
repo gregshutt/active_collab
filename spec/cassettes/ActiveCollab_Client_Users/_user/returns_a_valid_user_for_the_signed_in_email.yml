@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.10.1
       Date:
-      - Thu, 03 Nov 2016 21:45:39 GMT
+      - Mon, 07 Nov 2016 19:21:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=81i0q1l8reulqvqdco7bh4gtd6; path=/
+      - PHPSESSID=f7i7ake9uegtag6rhts46jrij5; path=/
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -44,7 +44,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
     http_version: 
-  recorded_at: Thu, 03 Nov 2016 21:45:39 GMT
+  recorded_at: Mon, 07 Nov 2016 19:21:23 GMT
 - request:
     method: get
     uri: "<ACTIVECOLLAB_HOST>/api/v1/users"
@@ -68,7 +68,7 @@ http_interactions:
       Server:
       - nginx/1.10.1
       Date:
-      - Thu, 03 Nov 2016 21:45:39 GMT
+      - Mon, 07 Nov 2016 19:21:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -76,7 +76,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=anlg9urngij3vel9g3jdihntt1; path=/
+      - PHPSESSID=04hps6n8u1bafo9m6s9seucli4; path=/
       Pragma:
       - no-cache
       X-Angie-Applicationversion:
@@ -84,9 +84,9 @@ http_interactions:
       Cache-Control:
       - public, max-age=0
       Expires:
-      - Sun, 01 Nov 2026 21:45:39 GMT
+      - Thu, 05 Nov 2026 19:21:23 GMT
       Etag:
-      - '"5.11.13,collection,Users,active,<ACTIVECOLLAB_USERNAME>,13d1373fd737cd93d47ad1e4c0706bb17114dab2"'
+      - '"5.11.13,collection,Users,active,<ACTIVECOLLAB_USERNAME>,223cec01dee5d8825ed440a58f79141c3601d6e1"'
       X-Angie-Paginationpage:
       - '0'
       X-Angie-Paginationperpage:
@@ -95,9 +95,9 @@ http_interactions:
       - '2'
     body:
       encoding: UTF-8
-      string: '[{"id":1,"class":"Owner","url_path":"\/users\/1","is_archived":false,"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"created_on":1456865742,"created_by_id":1,"updated_on":1478204734,"language_id":1,"first_name":"Greg","last_name":"Shutt","display_name":"Greg
-        Shutt","short_display_name":"Greg S.","email":"activecollab@example.com","is_email_at_example":false,"additional_email_addresses":[],"is_pending_activation":false,"avatar_url":"https:\/\/example.com\/proxy.php?proxy=avatar&module=system&v=5.11.13&b=DEV&user_id=1&size=--SIZE--&timestamp=1478204734","custom_permissions":[],"company_id":1,"title":"","phone":"","im_type":"","im_handle":""},{"id":41,"class":"Member","url_path":"\/users\/41","is_archived":false,"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"created_on":1475947170,"created_by_id":1,"updated_on":1478204786,"language_id":1,"first_name":"Member","last_name":"Test","display_name":"Member
+      string: '[{"id":1,"class":"Owner","url_path":"\/users\/1","is_archived":false,"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"created_on":1456865742,"created_by_id":1,"updated_on":1478533379,"language_id":1,"first_name":"Greg","last_name":"Shutt","display_name":"Greg
+        Shutt","short_display_name":"Greg S.","email":"activecollab@example.com","is_email_at_example":false,"additional_email_addresses":[],"is_pending_activation":false,"avatar_url":"https:\/\/example.com\/proxy.php?proxy=avatar&module=system&v=5.11.13&b=DEV&user_id=1&size=--SIZE--&timestamp=1478533379","custom_permissions":[],"company_id":1,"title":"","phone":"","im_type":"","im_handle":""},{"id":41,"class":"Member","url_path":"\/users\/41","is_archived":false,"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"created_on":1475947170,"created_by_id":1,"updated_on":1478204786,"language_id":1,"first_name":"Member","last_name":"Test","display_name":"Member
         Test","short_display_name":"Member T.","email":"<ACTIVECOLLAB_USERNAME>","is_email_at_example":false,"additional_email_addresses":[],"is_pending_activation":false,"avatar_url":"https:\/\/example.com\/proxy.php?proxy=avatar&module=system&v=5.11.13&b=DEV&user_id=41&size=--SIZE--&timestamp=1478204786","custom_permissions":[],"company_id":1,"title":null,"phone":null,"im_type":null,"im_handle":null}]'
     http_version: 
-  recorded_at: Thu, 03 Nov 2016 21:45:39 GMT
+  recorded_at: Mon, 07 Nov 2016 19:21:23 GMT
 recorded_with: VCR 3.0.3

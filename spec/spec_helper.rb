@@ -26,6 +26,10 @@ VCR.configure do |c|
     ENV['ACTIVECOLLAB_TEST_PASSWORD']
   end
 
+  c.filter_sensitive_data("<ACTIVECOLLAB_SUPPORT_EMAIL>") do
+    ENV['ACTIVECOLLAB_SUPPORT_EMAIL']
+  end
+
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :webmock
   c.default_cassette_options = { :record => :new_episodes }

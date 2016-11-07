@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe ActiveCollab::Client::Account, :vcr do
+  before do
+    ActiveCollab.reset
+    ActiveCollab.configure do |config|
+      config.api_endpoint = activecollab_host
+    end
+  end
 
   describe "#sign_in" do
     it "signs the user in" do
