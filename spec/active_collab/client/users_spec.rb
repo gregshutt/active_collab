@@ -11,6 +11,7 @@ describe ActiveCollab::Client::Users, :vcr do
       expect(client.signed_in?).to be true
       expect(user).not_to be_nil
       expect(user).to be_a_kind_of(ActiveCollab::User)
+      
     end
   end
 

@@ -23,8 +23,6 @@ module ActiveCollab
     API_VERSION = 1
 
     def initialize(hostname = nil, username = nil, password = nil)
-      
-
       if (! username.nil?) && (! password.nil?)
         sign_in(username, password)
       end

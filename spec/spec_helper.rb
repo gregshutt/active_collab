@@ -55,3 +55,7 @@ end
 def activecollab_password
   ENV.fetch 'ACTIVECOLLAB_TEST_PASSWORD'
 end
+
+def activecollab_support_email
+  ENV.fetch 'ACTIVECOLLAB_SUPPORT_EMAIL'
+end

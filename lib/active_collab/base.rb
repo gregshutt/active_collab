@@ -33,11 +33,7 @@ module ActiveCollab
     end
 
     def initialize(attributes = {})
-      kind = attributes[:kind]
-      data = attributes[:data]
-
-      @attributes = data || {}
-      @attributes[:kind] = kind
+      @attributes = attributes || {}
     end
 
     def [](method)

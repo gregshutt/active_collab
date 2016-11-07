@@ -8,13 +8,13 @@ module ActiveCollab
       # Gets a list of all allowed projects.
       #
       # @see https://developers.activecollab.com/api-documentation/v1/projects/projects.html
-      def projects()
+      def projects
         # get all the active projects
         response = get '/projects'
 
         body = response[:body]
 
-        puts body.inspect
+        body.map { |b| Project.new b }
       end
     end
   end
