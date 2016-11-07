@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ActiveCollab::Client::Users, :vcr do
+describe ActiveCollab::Client::Tasks, :vcr do
   before do
     ActiveCollab.reset
     ActiveCollab.configure do |config|
@@ -10,17 +10,19 @@ describe ActiveCollab::Client::Users, :vcr do
     end
   end
 
-  describe "#user" do
-    it "returns a valid user for the signed in email" do
+  describe "#tasks" do
+    it "saves a new task" do
       client = ActiveCollab::Client.new
       
-      user = client.user
-
-      expect(client.signed_in?).to be true
-      expect(user).not_to be_nil
-      expect(user).to be_a_kind_of(ActiveCollab::User)
-      
+      task = ActiveCollab::Task.new(client)
+      task.name = 'Test task'
+      task.project_id = 16
+      task.task_list_id = 31
+      #task.summary = 'Need to do stuff'
+      task.save
     end
+
+    
   end
 
 end

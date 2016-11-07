@@ -12,7 +12,7 @@ describe ActiveCollab::Client::Projects, :vcr do
 
   describe "#projects" do
     it "returns all allowed projects" do
-      client = ActiveCollab::Client.new activecollab_host, activecollab_username, activecollab_password
+      client = ActiveCollab::Client.new
       
       projects = client.projects
 
@@ -26,7 +26,7 @@ describe ActiveCollab::Client::Projects, :vcr do
     end
 
     it "gets task lists" do
-      client = ActiveCollab::Client.new activecollab_host, activecollab_username, activecollab_password
+      client = ActiveCollab::Client.new
       
       projects = client.projects
 

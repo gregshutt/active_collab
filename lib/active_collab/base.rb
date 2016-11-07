@@ -14,6 +14,14 @@ module ActiveCollab
         end
       end
 
+      def attr_accessor(*attrs)
+        attrs.each do |attr|
+          define_attribute_method(attr)
+          define_predicate_method(attr)
+          define_writer_method(attr)
+        end
+      end
+
       private
 
       def define_attribute_method(method)
@@ -27,6 +35,12 @@ module ActiveCollab
       def define_predicate_method(method)
         define_method(:"#{method}?") do
           !!@attributes[method]
+        end
+      end
+
+      def define_writer_method(method)
+        define_method(:"#{method}=") do |val|
+          @attributes[method] = val
         end
       end
 
@@ -45,6 +59,13 @@ module ActiveCollab
 
     def client
       @attributes[:client]
+    end
+
+    def field_attributes
+      # delete unnecessary keys
+      field_attrs = @attributes.dup
+      field_attrs.delete(:client)
+      field_attrs
     end
 
     private

@@ -3,6 +3,7 @@ require 'faraday'
 require 'active_collab/client/account'
 require 'active_collab/client/projects'
 require 'active_collab/client/task_lists'
+require 'active_collab/client/tasks'
 require 'active_collab/client/users'
 require 'active_collab/response/parse_json'
 require 'active_collab/response/raise_error'
@@ -12,6 +13,7 @@ module ActiveCollab
     include ActiveCollab::Client::Account
     include ActiveCollab::Client::Projects
     include ActiveCollab::Client::TaskLists
+    include ActiveCollab::Client::Tasks
     include ActiveCollab::Client::Users
 
     attr_reader :username
@@ -24,7 +26,10 @@ module ActiveCollab
 
     API_VERSION = 1
 
-    def initialize(hostname = nil, username = nil, password = nil)
+    def initialize()
+      username = ActiveCollab.configuration.username
+      password = ActiveCollab.configuration.password
+
       if (! username.nil?) && (! password.nil?)
         sign_in(username, password)
       end
