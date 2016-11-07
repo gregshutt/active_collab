@@ -13,6 +13,7 @@ module ActiveCollab
 
     attr_accessor :project_id
     attr_accessor :task_list_id
+    attr_accessor :subscribers
 
 
     def save

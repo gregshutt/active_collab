@@ -18,6 +18,7 @@ describe ActiveCollab::Client::Tasks, :vcr do
       task.name = 'Test task'
       task.project_id = 16
       task.task_list_id = 31
+      task.subscribers = [ 1 ]
       #task.summary = 'Need to do stuff'
       task.save
     end
