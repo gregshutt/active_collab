@@ -2,6 +2,7 @@ require 'faraday'
 
 require 'active_collab/client/account'
 require 'active_collab/client/projects'
+require 'active_collab/client/task_lists'
 require 'active_collab/client/users'
 require 'active_collab/response/parse_json'
 require 'active_collab/response/raise_error'
@@ -10,6 +11,7 @@ module ActiveCollab
   class Client
     include ActiveCollab::Client::Account
     include ActiveCollab::Client::Projects
+    include ActiveCollab::Client::TaskLists
     include ActiveCollab::Client::Users
 
     attr_reader :username

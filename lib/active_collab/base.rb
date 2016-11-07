@@ -32,14 +32,19 @@ module ActiveCollab
 
     end
 
-    def initialize(attributes = {})
+    def initialize(client, attributes = {})
       @attributes = attributes || {}
+      @attributes[:client] = client
     end
 
     def [](method)
       send(method.to_sym)
     rescue NoMethodError
       nil
+    end
+
+    def client
+      @attributes[:client]
     end
 
     private

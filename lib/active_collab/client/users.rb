@@ -30,7 +30,7 @@ module ActiveCollab
           return nil
         end
 
-        User.new user
+        User.new(self, user)
       end
     end
   end
