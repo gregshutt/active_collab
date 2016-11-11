@@ -16,4 +16,12 @@ describe ActiveCollab::Configuration do
     end
   end
 
+  describe "#company_id=" do
+    it "can set the default company id" do
+      config = ActiveCollab::Configuration.new
+      config.company_id = 1
+      expect(config.company_id).to eq 1
+    end
+  end
+
 end

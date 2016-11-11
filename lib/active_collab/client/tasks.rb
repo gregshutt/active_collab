@@ -10,8 +10,7 @@ module ActiveCollab
         response = post "/projects/#{task.project_id}/tasks", task.field_attributes
 
         body = response[:body]
-        puts task.field_attributes.inspect
-        puts body.inspect
+        Task.new(self, body[:single])
       end
     end
   end

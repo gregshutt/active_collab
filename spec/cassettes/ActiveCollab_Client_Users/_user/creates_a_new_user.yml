@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx/1.10.1
       Date:
-      - Fri, 11 Nov 2016 16:01:00 GMT
+      - Fri, 11 Nov 2016 17:04:29 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -31,7 +31,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=uqvq055sett1m3vq6v84vo79p5; path=/
+      - PHPSESSID=te23aj8lna09r5h8qqr20ppqj3; path=/
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -44,13 +44,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
     http_version: 
-  recorded_at: Fri, 11 Nov 2016 16:00:57 GMT
+  recorded_at: Fri, 11 Nov 2016 17:04:26 GMT
 - request:
     method: post
-    uri: "<ACTIVECOLLAB_HOST>/api/v1/projects/16/tasks"
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/users"
     body:
       encoding: UTF-8
-      string: body=Need+to+do+stuff&name=Test+task&project_id=16&subscribers%5B%5D=1&task_list_id=31
+      string: company_id=1&email=test-client%40example.com&first_name=Skip&last_name=Gaily&password=abc&type=Client
     headers:
       User-Agent:
       - Faraday v0.10.0
@@ -70,15 +70,15 @@ http_interactions:
       Server:
       - nginx/1.10.1
       Date:
-      - Fri, 11 Nov 2016 16:01:16 GMT
+      - Fri, 11 Nov 2016 17:04:29 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1213'
+      - '687'
       Connection:
       - keep-alive
       Set-Cookie:
-      - PHPSESSID=eh0ur2mbngrcif02gs5h7v3536; path=/
+      - PHPSESSID=qm78nbjbhpat3u1279t5rpfsi0; path=/
       Expires:
       - Thu, 19 Nov 1981 08:52:00 GMT
       Cache-Control:
@@ -89,9 +89,8 @@ http_interactions:
       - 5.11.13
     body:
       encoding: UTF-8
-      string: '{"single":{"id":680,"class":"Task","url_path":"\/projects\/16\/tasks\/680","name":"Test
-        task","assignee_id":0,"delegated_by_id":0,"completed_on":null,"completed_by_id":null,"is_completed":false,"comments_count":0,"attachments":[],"labels":[],"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"project_id":16,"is_hidden_from_clients":false,"body":"Need
-        to do stuff","body_formatted":"Need to do stuff","created_on":1478880076,"created_by_id":41,"updated_on":1478880076,"updated_by_id":41,"task_number":3,"task_list_id":31,"position":3,"is_important":false,"start_on":null,"due_on":null,"estimate":0,"job_type_id":0,"total_subtasks":0,"completed_subtasks":0,"open_subtasks":0,"created_from_recurring_task_id":0},"subscribers":[1,41],"comments":[],"reminders":[],"subtasks":[],"task_list":{"id":31,"class":"TaskList","url_path":"\/projects\/16\/task-lists\/31","name":"Bugs","is_trashed":false,"trashed_on":null,"trashed_by_id":0,"completed_on":null,"completed_by_id":null,"is_completed":false,"project_id":16,"created_on":1478551087,"created_by_id":1,"updated_on":1478558993,"updated_by_id":1,"start_on":null,"due_on":null,"position":2,"open_tasks":2,"completed_tasks":0},"tracked_time":0,"tracked_expenses":0}'
+      string: '{"single":{"id":43,"class":"Client","url_path":"\/users\/43","is_archived":false,"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"created_on":1478883869,"created_by_id":41,"updated_on":1478883869,"language_id":1,"first_name":"Skip","last_name":"Gaily","display_name":"Skip
+        Gaily","short_display_name":"Skip G.","email":"test-client@example.com","is_email_at_example":false,"additional_email_addresses":[],"is_pending_activation":false,"avatar_url":"https:\/\/example.com\/proxy.php?proxy=avatar&module=system&v=5.11.13&b=DEV&user_id=43&size=--SIZE--&timestamp=1478883869","custom_permissions":[],"company_id":1,"title":null,"phone":null,"im_type":null,"im_handle":null}}'
     http_version: 
-  recorded_at: Fri, 11 Nov 2016 16:01:13 GMT
+  recorded_at: Fri, 11 Nov 2016 17:04:26 GMT
 recorded_with: VCR 3.0.3

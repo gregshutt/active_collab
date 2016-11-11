@@ -8,5 +8,17 @@ module ActiveCollab
     attr_reader :id
     attr_reader :class
     attr_reader :url_path
+
+    attr_accessor :company_id
+    attr_accessor :type
+    attr_accessor :email
+    attr_accessor :password
+    attr_accessor :first_name, :last_name
+
+    def save
+      
+      
+      self.client.save_user(self)
+    end
   end
 end

@@ -32,6 +32,19 @@ module ActiveCollab
 
         User.new(self, user)
       end
+
+      def save_user(user)
+        # set the company id
+        if user.company_id.nil?
+          user.company_id = ActiveCollab.configuration.company_id
+        end
+
+        # get all the active projects
+        response = post "/users", user.field_attributes
+
+        body = response[:body]
+        User.new(self, body[:single])
+      end
     end
   end
 end

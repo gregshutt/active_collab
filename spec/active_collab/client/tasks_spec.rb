@@ -16,11 +16,16 @@ describe ActiveCollab::Client::Tasks, :vcr do
       
       task = ActiveCollab::Task.new(client)
       task.name = 'Test task'
+      task.body = 'Need to do stuff'
       task.project_id = 16
       task.task_list_id = 31
       task.subscribers = [ 1 ]
-      #task.summary = 'Need to do stuff'
-      task.save
+
+      task = task.save
+
+      # should have assigned a new id
+      expect(task.id).not_to be_nil
+      expect(task.body).to eq 'Need to do stuff'
     end
 
     

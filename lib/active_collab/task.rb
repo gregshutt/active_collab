@@ -10,6 +10,7 @@ module ActiveCollab
     attr_reader :url_path
 
     attr_accessor :name
+    attr_accessor :body
 
     attr_accessor :project_id
     attr_accessor :task_list_id

@@ -1,0 +1,102 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/issue-token"
+    body:
+      encoding: UTF-8
+      string: client_name=ActiveCollab+0.1.0&client_vendor=Independence+Software%2C+Inc&password=<ACTIVECOLLAB_PASSWORD>&username=<ACTIVECOLLAB_USERNAME>
+    headers:
+      User-Agent:
+      - Faraday v0.10.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Fri, 11 Nov 2016 16:51:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '68'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=du6ha1sl9cg9d401k367sp08d7; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Angie-Applicationversion:
+      - 5.11.13
+    body:
+      encoding: UTF-8
+      string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
+    http_version: 
+  recorded_at: Fri, 11 Nov 2016 16:51:39 GMT
+- request:
+    method: get
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/companies"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.10.0
+      X-Angie-Authapitoken:
+      - 41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Fri, 11 Nov 2016 16:51:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '382'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=j89qa4cdq6a2c6jdbga13h4651; path=/
+      Pragma:
+      - no-cache
+      X-Angie-Applicationversion:
+      - 5.11.13
+      Cache-Control:
+      - public, max-age=0
+      Expires:
+      - Mon, 09 Nov 2026 16:51:42 GMT
+      Etag:
+      - '"5.11.13,collection,Companies,active,<ACTIVECOLLAB_USERNAME>,7c23704afd2198d09039f77c3cef0872011c2c00"'
+      X-Angie-Paginationpage:
+      - '0'
+      X-Angie-Paginationperpage:
+      - '0'
+      X-Angie-Paginationtotal:
+      - '1'
+    body:
+      encoding: UTF-8
+      string: '[{"id":1,"class":"Company","url_path":"\/companies\/1","name":"Independence
+        Software, Inc","members":[1,41],"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"is_archived":false,"created_on":1456865742,"created_by_id":1,"updated_on":1460643519,"updated_by_id":1,"address":null,"phone":null,"homepage_url":null,"tax_id":null,"currency_id":null,"is_owner":true,"has_note":false}]'
+    http_version: 
+  recorded_at: Fri, 11 Nov 2016 16:51:39 GMT
+recorded_with: VCR 3.0.3

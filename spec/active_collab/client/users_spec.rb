@@ -7,6 +7,7 @@ describe ActiveCollab::Client::Users, :vcr do
       config.api_endpoint = activecollab_host
       config.username = activecollab_username
       config.password = activecollab_password
+      config.company_id = 1
     end
   end
 
@@ -19,7 +20,18 @@ describe ActiveCollab::Client::Users, :vcr do
       expect(client.signed_in?).to be true
       expect(user).not_to be_nil
       expect(user).to be_a_kind_of(ActiveCollab::User)
-      
+    end
+
+    it "creates a new user" do
+      client = ActiveCollab::Client.new
+
+      user = ActiveCollab::User.new(client)
+      user.type = 'Client'
+      user.email = 'test-client@example.com'
+      user.password = 'abc'
+      user.first_name = 'Skip'
+      user.last_name = 'Gaily'
+      user.save
     end
   end
 
