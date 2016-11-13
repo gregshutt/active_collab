@@ -3,19 +3,21 @@ require 'active_collab/client'
 require 'active_collab/configuration'
 
 module ActiveCollab
-  def self.reset
-    @configuration = Configuration.new
-  end
-  
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
+  class << self
+    def client
+      @client ||= ActiveCollab::Client.new
+    end
 
-  def self.configure
-    yield(configuration)
-  end
+    def reset
+      @configuration = Configuration.new
+    end
+    
+    def configuration
+      @configuration ||= Configuration.new
+    end
 
-  def client
-    @client ||= ActiveCollab::Client.new
+    def configure
+      yield(configuration)
+    end
   end
 end
