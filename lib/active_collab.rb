@@ -15,4 +15,7 @@ module ActiveCollab
     yield(configuration)
   end
 
+  def client
+    @client ||= ActiveCollab::Client.new
+  end
 end
