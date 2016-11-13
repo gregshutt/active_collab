@@ -2,6 +2,7 @@ require 'faraday'
 
 require 'active_collab/client/account'
 require 'active_collab/client/companies'
+require 'active_collab/client/discussions'
 require 'active_collab/client/projects'
 require 'active_collab/client/task_lists'
 require 'active_collab/client/tasks'
@@ -13,6 +14,7 @@ module ActiveCollab
   class Client
     include ActiveCollab::Client::Account
     include ActiveCollab::Client::Companies
+    include ActiveCollab::Client::Discussions
     include ActiveCollab::Client::Projects
     include ActiveCollab::Client::TaskLists
     include ActiveCollab::Client::Tasks

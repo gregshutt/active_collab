@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/issue-token"
+    body:
+      encoding: UTF-8
+      string: client_name=ActiveCollab+0.1.0&client_vendor=Independence+Software%2C+Inc&password=<ACTIVECOLLAB_PASSWORD>&username=<ACTIVECOLLAB_USERNAME>
+    headers:
+      User-Agent:
+      - Faraday v0.10.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Sun, 13 Nov 2016 19:36:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '68'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=ou0rgo585d07e8fc9heubu1v21; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Angie-Applicationversion:
+      - 5.11.13
+    body:
+      encoding: UTF-8
+      string: '{"is_ok":true,"token":"41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv"}'
+    http_version: 
+  recorded_at: Sun, 13 Nov 2016 19:36:27 GMT
+- request:
+    method: post
+    uri: "<ACTIVECOLLAB_HOST>/api/v1/projects/16/discussions"
+    body:
+      encoding: UTF-8
+      string: body=Need+to+do+stuff&name=Test+task&project_id=16&subscribers%5B%5D=1
+    headers:
+      User-Agent:
+      - Faraday v0.10.0
+      X-Angie-Authapitoken:
+      - 41-FOcbye2XIZpsgZeRA8ufJQ8h4vruBYQ8CT01Y1Nv
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.1
+      Date:
+      - Sun, 13 Nov 2016 19:36:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '428'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - PHPSESSID=4nj6bc31lqk6cnq2uq65s820a0; path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      X-Angie-Applicationversion:
+      - 5.11.13
+    body:
+      encoding: UTF-8
+      string: '{"single":{"id":181,"class":"Discussion","url_path":"\/projects\/16\/discussions\/181","name":"Test
+        task","comments_count":0,"attachments":[],"is_trashed":false,"trashed_on":null,"trashed_by_id":0,"project_id":16,"is_hidden_from_clients":false,"body":"Need
+        to do stuff","body_formatted":"Need to do stuff","created_on":1479065787,"created_by_id":41,"updated_on":1479065787,"updated_by_id":41},"subscribers":[1,41],"comments":[]}'
+    http_version: 
+  recorded_at: Sun, 13 Nov 2016 19:36:27 GMT
+recorded_with: VCR 3.0.3
