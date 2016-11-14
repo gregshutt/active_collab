@@ -15,9 +15,6 @@ module ActiveCollab
     attr_accessor :password
     attr_accessor :first_name, :last_name
     attr_accessor :language_id
-    attr_accessor :custom_permissions
-
-    attr_accessor :projects
 
     def save
       self.client.save_user(self)
