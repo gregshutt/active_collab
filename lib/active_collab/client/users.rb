@@ -1,4 +1,5 @@
 require 'active_collab/user'
+require 'active_collab/user_invitation'
 
 module ActiveCollab
   class Client
@@ -60,6 +61,16 @@ module ActiveCollab
           role: role,
           project_ids: project_ids
         })
+
+        body = response[:body]
+        body.map { |b| User.new(self, b) }
+      end
+
+      def resend_invitation(user)
+        response = put("/users/#{user.id}/resend-invitation")
+
+        body = response[:body]
+        UserInvitation.new(self, body[:single])
       end
     end
   end

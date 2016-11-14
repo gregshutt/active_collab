@@ -19,8 +19,6 @@ module ActiveCollab
     attr_accessor :projects
 
     def save
-      
-      
       self.client.save_user(self)
     end
   end

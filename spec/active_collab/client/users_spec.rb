@@ -39,6 +39,15 @@ describe ActiveCollab::Client::Users, :vcr do
 
       client.invite_user('testguy@example.com', 'Client', 16)
     end
+
+    it "resends invitations" do
+      client = ActiveCollab::Client.new
+
+      user = ActiveCollab::User.new(client, id: 63)
+      user_invitation = client.resend_invitation(user)
+
+      expect(user_invitation.code).not_to be_nil
+    end
   end
 
 end
