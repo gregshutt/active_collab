@@ -9,6 +9,8 @@ module ActiveCollab
     attr_reader :class
     attr_reader :url_path
 
+    attr_accessor :is_archived, :is_trashed
+
     attr_accessor :company_id
     attr_accessor :type
     attr_accessor :email
