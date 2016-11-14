@@ -65,6 +65,10 @@ module ActiveCollab
         request(:post, build_url(path), params, connection)
       end
 
+      def put(path, params = {})
+        request(:put, build_url(path), params, connection)
+      end
+
       def request(method, path, parameters = {}, request_connection)
         if signed_in?
           request = proc do |request|

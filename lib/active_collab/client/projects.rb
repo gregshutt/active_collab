@@ -16,6 +16,17 @@ module ActiveCollab
 
         body.map { |b| Project.new(self, b) }
       end
+
+      def save_project(project)
+        if project.id.nil?
+          response = post "/projects", project.field_attributes
+        else
+          response = put "/projects/#{project.id}", project.field_attributes
+        end
+
+        body = response[:body]
+        Project.new(self, body[:single])
+      end
     end
   end
 end

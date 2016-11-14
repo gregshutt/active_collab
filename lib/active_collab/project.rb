@@ -11,6 +11,7 @@ module ActiveCollab
 
     attr_reader :name
     attr_reader :email
+    attr_accessor :members
 
     def task_lists
       self.client.task_lists(self.id)
