@@ -10,8 +10,6 @@ module ActiveCollab
     attr_reader :url_path
 
     attr_reader :name
-
-    attr_accessor :projects
     
   end
 end

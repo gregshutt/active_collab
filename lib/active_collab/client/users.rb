@@ -45,6 +45,14 @@ module ActiveCollab
         body = response[:body]
         User.new(self, body[:single])
       end
+
+      def invite(email_addresses, role, project_ids)
+        response = post("/users/invite", {
+          email_addresses: email_addresses,
+          role: role,
+          project_ids: project_ids
+        })
+      end
     end
   end
 end
