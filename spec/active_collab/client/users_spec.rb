@@ -47,6 +47,9 @@ describe ActiveCollab::Client::Users, :vcr do
       user_invitation = client.resend_invitation(user)
 
       expect(user_invitation.code).not_to be_nil
+
+      # make sure it merges the user id
+      expect(user_invitation.user_id).to eq 63
     end
   end
 

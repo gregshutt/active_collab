@@ -70,7 +70,12 @@ module ActiveCollab
         response = put("/users/#{user.id}/resend-invitation")
 
         body = response[:body]
-        UserInvitation.new(self, body[:single])
+        UserInvitation.new(self, body[:single].merge({user_id: user.id}))
+      end
+
+      def accept_invitation(user_invitation, user)
+        response = post("/accept-invitation?user_id=#{user_invitation.user_id}&code=#{user_invitation.code}",
+          user.field_attributes)
       end
     end
   end

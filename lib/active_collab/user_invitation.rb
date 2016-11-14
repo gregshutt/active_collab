@@ -11,5 +11,6 @@ module ActiveCollab
 
     attr_reader :code
     
+    attr_accessor :user_id
   end
 end
