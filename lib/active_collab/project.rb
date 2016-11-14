@@ -16,5 +16,9 @@ module ActiveCollab
     def task_lists
       self.client.task_lists(self.id)
     end
+
+    def save
+      self.client.save_discussion(self)
+    end
   end
 end
