@@ -18,7 +18,7 @@ module ActiveCollab
     end
 
     def save
-      self.client.save_discussion(self)
+      self.client.save_project(self)
     end
   end
 end
