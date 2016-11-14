@@ -34,7 +34,7 @@ module ActiveCollab
         User.new(self, user)
       end
 
-      def save_user(user)
+      def save_user(user, new_fields = nil)
         # set the company id
         if user.company_id.nil?
           user.company_id = ActiveCollab.configuration.company_id
@@ -44,7 +44,7 @@ module ActiveCollab
         if user.id.nil?
           response = post "/users", user.field_attributes
         else
-          response = put "/users/#{user.id}", user.field_attributes
+          response = put "/users/#{user.id}", new_fields || user.field_attributes
         end
 
         body = response[:body]

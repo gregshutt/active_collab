@@ -18,8 +18,8 @@ module ActiveCollab
     attr_accessor :first_name, :last_name
     attr_accessor :language_id
 
-    def save
-      self.client.save_user(self)
+    def save(new_fields = nil)
+      self.client.save_user(self, new_fields)
     end
   end
 end
