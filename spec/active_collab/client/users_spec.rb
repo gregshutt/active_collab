@@ -33,6 +33,12 @@ describe ActiveCollab::Client::Users, :vcr do
       user.last_name = 'Gaily'
       user.save
     end
+
+    it "invites users" do
+      client = ActiveCollab::Client.new
+
+      client.invite_user('testguy@example.com', 'Client', 16)
+    end
   end
 
 end
