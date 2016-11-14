@@ -14,6 +14,7 @@ module ActiveCollab
     attr_accessor :email
     attr_accessor :password
     attr_accessor :first_name, :last_name
+    attr_accessor :language_id
     attr_accessor :custom_permissions
 
     attr_accessor :projects

@@ -76,6 +76,8 @@ module ActiveCollab
       def accept_invitation(user_invitation, user)
         response = post("/accept-invitation?user_id=#{user_invitation.user_id}&code=#{user_invitation.code}",
           user.field_attributes)
+
+        
       end
     end
   end

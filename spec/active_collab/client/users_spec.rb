@@ -40,7 +40,7 @@ describe ActiveCollab::Client::Users, :vcr do
       client.invite_user('testguy@example.com', 'Client', 16)
     end
 
-    it "resends invitations" do
+    it "resends and accepts invitations" do
       client = ActiveCollab::Client.new
 
       user = ActiveCollab::User.new(client, id: 63)
@@ -50,6 +50,10 @@ describe ActiveCollab::Client::Users, :vcr do
 
       # make sure it merges the user id
       expect(user_invitation.user_id).to eq 63
+
+      client.accept_invitation(user_invitation, ActiveCollab::User.new(client, {
+        first_name: 'Test', last_name: 'Guy', password: 'abc', language_id: '1'
+      }))
     end
   end
 
