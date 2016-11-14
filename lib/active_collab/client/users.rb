@@ -41,13 +41,17 @@ module ActiveCollab
         end
 
         # get all the active projects
-        response = post "/users", user.field_attributes
+        if user.id.nil?
+          response = post "/users", user.field_attributes
+        else
+          response = put "/users/#{user.id}", user.field_attributes
+        end
 
         body = response[:body]
         User.new(self, body[:single])
       end
 
-      def invite_user(email_addresses, role, project_ids)
+      def invite_user(email_addresses, role, project_ids, company_id = nil)
         if ! email_addresses.is_a? Array
           email_addresses = [email_addresses]
         end
@@ -56,10 +60,15 @@ module ActiveCollab
           project_ids = [project_ids]
         end
 
+        if company_id.nil?
+          company_id = ActiveCollab.configuration.company_id
+        end
+
         response = post("/users/invite", {
           email_addresses: email_addresses,
           role: role,
-          project_ids: project_ids
+          project_ids: project_ids,
+          company_id: company_id
         })
 
         body = response[:body]
@@ -77,7 +86,7 @@ module ActiveCollab
         response = post("/accept-invitation?user_id=#{user_invitation.user_id}&code=#{user_invitation.code}",
           user.field_attributes)
 
-        
+
       end
     end
   end
