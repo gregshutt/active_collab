@@ -16,6 +16,8 @@ module ActiveCollab
     attr_accessor :first_name, :last_name
     attr_accessor :custom_permissions
 
+    attr_accessor :projects
+
     def save
       
       
